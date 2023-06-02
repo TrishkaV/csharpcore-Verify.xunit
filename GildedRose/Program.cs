@@ -10,6 +10,8 @@ public static class Program
     ///</summary>
     public static void Main(string[]? args = null)
     {
+        args ??= Array.Empty<string>();
+
         if (!int.TryParse(args[0], out int nDays))
             nDays = 30;
 
