@@ -4,8 +4,15 @@ using System.Collections.Generic;
 namespace GildedRoseKata;
 public static class Program
 {
-    public static void Main()
+    ///<summary>
+    ///<para>Argumengs:</para>
+    /// <param name="args"> [0] - number of days to test</param>
+    ///</summary>
+    public static void Main(string[]? args = null)
     {
+        if (!int.TryParse(args[0], out int nDays))
+            nDays = 30;
+
         Console.WriteLine("OMGHAI!");
 
         IList<Item> Items = new List<Item>{
@@ -40,13 +47,13 @@ public static class Program
 
         var app = new GildedRose(Items);
 
-        for (var i = 0; i < 31; i++)
+        for (var i = 1; i <= nDays; i++)
         {
             Console.WriteLine("-------- day " + i + " --------");
             Console.WriteLine("name, sellIn, quality");
             for (var j = 0; j < Items.Count; j++)
             {
-                Console.WriteLine(Items[j].Name + ", " + Items[j].SellIn + ", " + Items[j].Quality);
+                Console.WriteLine($"{Items[j].Name}, {Items[j].SellIn}, {Items[j].Quality}");
             }
             Console.WriteLine("");
             app.UpdateQuality();
