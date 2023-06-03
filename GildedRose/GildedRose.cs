@@ -68,12 +68,13 @@ public partial class GildedRose
         #endregion
 
         #region handle logic breaking items
-        for (var i = Items.Count - 1; i > 0; i--)
+        for (var i = Items.Count - 1; i >= 0; i--)
         {
             if (string.IsNullOrWhiteSpace(Items[i].Name))
             {
                 Console.WriteLine("An Item must have a name, it will be excluded.");
                 Items.RemoveAt(i);
+                continue;
             }
 
             if (Items[i].Name == "Sulfuras, Hand of Ragnaros" && Items[i].Quality != 80)
