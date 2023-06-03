@@ -1,8 +1,9 @@
-﻿namespace GildedRoseKata;
-
-public class Item
+﻿namespace GildedRoseKata
 {
-    public string? Name { get; set; }
-    public int SellIn { get; set; }
-    public int Quality { get; set; }
+    public class Item
+    {
+        public string Name { get; set; }
+        public int SellIn { get; set; }
+        public int Quality { get; set; }
+    }
 }
