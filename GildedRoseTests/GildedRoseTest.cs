@@ -10,7 +10,7 @@ public class GildedRoseTest
     public void Foo()
     {
         var Items = new List<Item> { new Item { Name = "Foo", SellIn = 0, Quality = 0 } };
-        var app = new GildedRose(Items);
+        var app = new GildedRoseKata.GildedRose(Items);
         app.UpdateQuality();
         Assert.Equal("Foo", Items[0].Name);
     }
