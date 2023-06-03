@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace GildedRoseKata;
 public static class Program
@@ -12,7 +13,7 @@ public static class Program
     {
         args ??= Array.Empty<string>();
 
-        if (!int.TryParse(args[0], out int nDays))
+        if (!int.TryParse(args.FirstOrDefault(), out int nDays))
             nDays = 30;
 
         Console.WriteLine("OMGHAI!");
@@ -41,10 +42,8 @@ public static class Program
                     SellIn = 5,
                     Quality = 49
                 },
-#if DEBUG
-				// this conjured item does not work properly yet
-				new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
-#endif
+
+                new Item {Name = "Conjured Mana Cake", SellIn = 3, Quality = 6}
             };
 
         var app = new GildedRose(Items);
