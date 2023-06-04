@@ -77,6 +77,9 @@ public partial class GildedRose
                 continue;
             }
 
+            /* NOTE - TODO - Items Legendary: 
+                "Sulfuras" is currently the only legendary item so a small Quality field test for it is put here,
+                as the legendary item category is more fleshed out this test will be converted into an appropriate database entry retrieval with caching. */
             if (Items[i].Name == "Sulfuras, Hand of Ragnaros" && Items[i].Quality != 80)
             {
                 Console.WriteLine($"A \"Sulfuras, Hand of Ragnaros\" item with a quality of {Items[i].Quality} was passed, restoring to 80.");
