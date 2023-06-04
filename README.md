@@ -13,6 +13,12 @@ All tests run and more have been added to the ones already present, the logic ha
 
 **Expanding the tests**:<br><br>
 Beyond the base tests that shipped with the projects, more have been added and used to ensure that the application logic would keep its intended behaviour during development. The added tests include verification for the depreciation behaviour for both the already present common and legendary items, as well as the newly added conjured items, and appreciation for items that gain in value as time passes.
+<br><br>
+
+**How to run and test the application**:<br><br>
+A runnable executable for Windows, OSX, and Linux can be found on the right side of the project's page in the "Releases" section, you can simply download the right version for you and run it as is.
+The source code on the project's page comes with the tests project as well, once the source code has been downloaded all tests can easily be run in the standard .NET way through any VS IDE. No particular setup is required.
+
 
 <br><br>
 ---------------------------------------------------------------------------------
