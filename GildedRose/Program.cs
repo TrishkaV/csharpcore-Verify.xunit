@@ -6,7 +6,7 @@ namespace GildedRoseKata;
 public static class Program
 {
     ///<summary>
-    ///<para>Argumengs:</para>
+    ///<para>Arguments:</para>
     /// <param name="args"> [0] - number of days to test</param>
     ///</summary>
     public static void Main(string[]? args = null)
