@@ -7,16 +7,7 @@ namespace GildedRoseTests;
 public class GildedRoseTest
 {
     [Fact]
-    public void Foo()
-    {
-        var Items = new List<Item> { new Item { Name = "Foo", SellIn = 0, Quality = 0 } };
-        var app = new GildedRoseKata.GildedRose(Items);
-        app.UpdateQuality();
-        Assert.Equal("Foo", Items[0].Name);
-    }
-
-    [Fact]
-    public void ItemNonValid()
+    public void GildedRose_ItemNotValidPassed_ItemRemoved()
     {
         var Items = new List<Item> { new Item { Name = "", SellIn = 10, Quality = 10 } };
         _ = new GildedRoseKata.GildedRose(Items);
@@ -26,7 +17,7 @@ public class GildedRoseTest
     public class ItemsCommonTests
     {
         [Fact]
-        public void CommonDepreciateOne()
+        public void UpdateQuality_SingleIteration_DepreciateByOne()
         {
             var Items = new List<Item> { new Item { Name = "Foo", SellIn = 10, Quality = 10 } };
             var app = new GildedRoseKata.GildedRose(Items);
@@ -36,7 +27,7 @@ public class GildedRoseTest
         }
 
         [Fact]
-        public void CommonDepreciateTen()
+        public void UpdateQuality_TenIterations_DepreciateByTen()
         {
             var Items = new List<Item> { new Item { Name = "Foo", SellIn = 10, Quality = 10 } };
             var app = new GildedRoseKata.GildedRose(Items);
@@ -47,7 +38,7 @@ public class GildedRoseTest
         }
 
         [Fact]
-        public void CommonAppreciate()
+        public void UpdateQuality_TenIterations_AppreciateByTen()
         {
             var Items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 10, Quality = 10 } };
             var app = new GildedRoseKata.GildedRose(Items);
@@ -57,7 +48,7 @@ public class GildedRoseTest
         }
 
         [Fact]
-        public void CommonAppreciateAboveQuality50()
+        public void UpdateQuality_OneHundredIterations_AppreciateUpToFifty()
         {
             var Items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 10, Quality = 10 } };
             var app = new GildedRoseKata.GildedRose(Items);
@@ -67,7 +58,7 @@ public class GildedRoseTest
         }
 
         [Fact]
-        public void CommonAppreciateBeyondExpiry()
+        public void UpdateQuality_TwentyIterations_KeepAppreciatingAfterExpiryToThirty()
         {
             var Items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 10, Quality = 10 } };
             var app = new GildedRoseKata.GildedRose(Items);
@@ -77,7 +68,7 @@ public class GildedRoseTest
         }
 
         [Fact]
-        public void CommonConjuredDepreciate()
+        public void UpdateQuality_FiveIterations_ConjuredDepreciatesInHalfTheTime()
         {
             var Items = new List<Item> { new Item { Name = "Conjured Mana Cake", SellIn = 10, Quality = 10 } };
             var app = new GildedRoseKata.GildedRose(Items);
@@ -87,7 +78,7 @@ public class GildedRoseTest
         }
 
         [Fact]
-        public void CommonConjuredDepreciateBeyondExpiry()
+        public void UpdateQuality_TwentyIterations_ConjuredHasMinValueOfZero()
         {
             var Items = new List<Item> { new Item { Name = "Conjured Mana Cake", SellIn = 10, Quality = 10 } };
             var app = new GildedRoseKata.GildedRose(Items);
@@ -100,7 +91,7 @@ public class GildedRoseTest
     public class ItemsLegendaryTests
     {
         [Fact]
-        public void LegendarySulfurasDepreciate()
+        public void UpdateQuality_TwentyItarations_QualityDoesNotDepreciate()
         {
             var Items = new List<Item> { new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 10, Quality = 80 } };
             var app = new GildedRoseKata.GildedRose(Items);
