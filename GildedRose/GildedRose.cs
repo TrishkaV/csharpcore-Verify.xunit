@@ -7,7 +7,6 @@ using GildedRose.Core.ItemTypeCheck;
 using GildedRose.DataLayer;
 using GildedRose.Extensions;
 using GildedRose.Results;
-using Microsoft.Extensions.Caching.Memory;
 
 namespace GildedRoseKata;
 
