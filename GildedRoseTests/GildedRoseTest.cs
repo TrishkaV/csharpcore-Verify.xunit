@@ -38,6 +38,26 @@ public class GildedRoseTest
         }
 
         [Fact]
+        public void UpdateQuality_BackStagePassToMaxValue_IncreaseBy2Beteew5And10AndBy3Between0And4()
+        {
+            var Items = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 10, Quality = 10 } };
+            var app = new GildedRoseKata.GildedRose(Items);
+            for (var i = 0; i < 10; i++)
+                app.UpdateQuality();
+            Assert.Equal(35, Items[0].Quality);
+        }
+
+        [Fact]
+        public void UpdateQuality_BackStagePassZeroAfterExpiry_QualityToZero()
+        {
+            var Items = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 10, Quality = 10 } };
+            var app = new GildedRoseKata.GildedRose(Items);
+            for (var i = 0; i < 11; i++)
+                app.UpdateQuality();
+            Assert.Equal(0, Items[0].Quality);
+        }
+
+        [Fact]
         public void UpdateQuality_TenIterations_AppreciateByTen()
         {
             var Items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 10, Quality = 10 } };

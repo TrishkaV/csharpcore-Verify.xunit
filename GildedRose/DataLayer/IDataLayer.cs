@@ -1,14 +1,18 @@
 using System.Collections.Generic;
+using GildedRose.Results;
+using GildedRoseKata;
 
 namespace GildedRose.DataLayer;
 
 public interface IDataLayer
 {
-    List<string> GetItemsCommonAppreciate();
-    List<string> GetitemsCommonDepreciate();
-    List<string> GetitemsCommonConjured();
-    List<string> GetitemsCommonBackstagePass();
+    List<Item> GetItemsCommonAppreciate();
+    List<Item> GetitemsCommonDepreciate();
+    List<Item> GetitemsCommonConjured();
+    List<Item> GetitemsCommonBackstagePass();
     int GetCommonItemMaxQuality();
     int GetCommonConjuredQualityDegradeFactor();
-    List<string> GetItemsLegendary();
+    List<Item> GetItemsLegendary();
+    int GetLegendarySulfurasFixQuality();
+    ItemType[] GetItemTypes();
 }

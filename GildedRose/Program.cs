@@ -48,7 +48,7 @@ public static class Program
 
         var app = new GildedRose(Items);
 
-        for (var i = 1; i <= nDays; i++)
+        for (var i = 0; i <= nDays; i++)
         {
             Console.WriteLine("-------- day " + i + " --------");
             Console.WriteLine("name, sellIn, quality");

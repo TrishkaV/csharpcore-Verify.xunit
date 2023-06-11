@@ -1,8 +1,10 @@
-﻿namespace GildedRoseKata;
+using GildedRoseKata;
 
-public partial class GildedRose
+namespace GildedRose.Core;
+
+internal static partial class ItemQualityUpdate
 {
-    private bool ItemCommonAppreciate(Item item)
+    internal static bool ItemCommonAppreciate(Item item, int commonItemMaxQuality)
     {
         if (--item.SellIn < 0)
             item.SellIn = 0; /* avoid int underflow */
@@ -13,10 +15,11 @@ public partial class GildedRose
         return true;
     }
 
-    private static bool ItemCommonBackstagePassDepreciate(Item item)
+    internal static bool ItemCommonBackstagePassDepreciate(Item item)
     {
         /* it is mentioned that quality drops to 0 AFTER the concert, so when SellIn is 0
-            (the day of the concert) then the pass still holds its value */
+            (the day of the concert) then the pass still holds its value 
+        */
         switch (--item.SellIn)
         {
             case var x when x < 0:
@@ -34,7 +37,7 @@ public partial class GildedRose
         return true;
     }
 
-    private bool ItemCommonDepreciate(Item item, bool isItemConjured = false)
+    internal static bool ItemCommonDepreciate(Item item, bool isItemConjured = false, int commonConjuredQualityDegradeFactor = 1)
     {
         var degradeFactorExpired = 1;
         var degradeFactorConjured = isItemConjured ? commonConjuredQualityDegradeFactor : 1;
@@ -51,15 +54,6 @@ public partial class GildedRose
         return true;
     }
 
-    private bool ItemCommonConjuredDepreciate(Item item)
-    {
-        return ItemCommonDepreciate(item, isItemConjured: true);
-    }
-
-    private static bool ItemLegendaryDepreciate(Item item)
-    {
-        /* legendary items do not need to be sold or depreciate, currently do nothing */
-
-        return true;
-    }
+    internal static bool ItemCommonConjuredDepreciate(Item item, int commonConjuredQualityDegradeFactor)
+        => ItemCommonDepreciate(item, isItemConjured: true, commonConjuredQualityDegradeFactor);
 }
