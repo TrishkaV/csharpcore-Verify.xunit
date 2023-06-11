@@ -6,13 +6,19 @@ namespace GildedRose.DataLayer;
 
 public interface IDataLayer
 {
+    #region SELECT Item Common
     List<Item> GetItemsCommonAppreciate();
     List<Item> GetitemsCommonDepreciate();
     List<Item> GetitemsCommonConjured();
     List<Item> GetitemsCommonBackstagePass();
     int GetCommonItemMaxQuality();
     int GetCommonConjuredQualityDegradeFactor();
+    #endregion
+
+    #region SELECT Item Legendary
     List<Item> GetItemsLegendary();
     int GetLegendarySulfurasFixQuality();
+    #endregion
+
     ItemType[] GetItemTypes();
 }

@@ -16,12 +16,6 @@ public class GildedRose
 
     private readonly IDataLayer dataLayer;
 
-    // private readonly List<Item> itemsCommonAppreciate;
-    // private readonly List<Item> itemsCommonDepreciate;
-    // private readonly List<Item> itemsCommonConjured;
-    // private readonly List<Item> itemsCommonBackstagePass;
-    // private readonly List<Item> itemsLegendary;
-
     private readonly int commonMaxQuality;
     private readonly int commonConjuredQualityDegradeFactor;
     private readonly int legendarySulfurasFixQuality;
