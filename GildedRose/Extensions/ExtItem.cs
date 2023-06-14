@@ -20,11 +20,11 @@ public static class ExtItem
 
     public static ItemType GetItemType(this Item item, IDataLayer? dataLayer = null)
     {
-        foreach (var it in CacheItem.GetItemTypes(dataLayer))
+        foreach (var t in CacheItem.GetItemTypes(dataLayer))
         {
-            var items = CacheItem.GetItemsByType(it, dataLayer);
+            var items = CacheItem.GetItemsByType(t, dataLayer);
             if (items.Any(x => x.ItemEquals(item)))
-                return it;
+                return t;
         }
 
         Console.WriteLine($"WARN: Item \"{item.Name}\" does not belong to any item class. Defaulting to Common Depreciable.");

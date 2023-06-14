@@ -28,7 +28,20 @@ public class GildedRose
         commonConjuredQualityDegradeFactor = CacheItem.GetCommonConjuredQualityDegradeFactor(dataLayer);
         legendarySulfurasFixQuality = CacheItem.GetLegendarySulfurasFixQuality(dataLayer);
 
-        #region handle logic breaking items
+        ConstructorGuard(Items);
+
+        this.Items = Items;
+    }
+
+    ///<summary>
+    ///<para>Enforce through removal:</para>
+    ///<para>- Item name cannot be empty</para>
+    ///<para>Enforce through modification:</para>
+    ///<para>- Sulfuras fixed quality</para>
+    ///<para>- Common items max quality</para>
+    ///</summary>
+    private bool ConstructorGuard(IList<Item> Items)
+    {
         for (var i = Items.Count - 1; i >= 0; i--)
         {
             if (string.IsNullOrWhiteSpace(Items[i].Name))
@@ -50,9 +63,8 @@ public class GildedRose
                 Items[i].Quality = commonMaxQuality;
             }
         }
-        #endregion
 
-        this.Items = Items;
+        return true;
     }
 
     public void UpdateQuality()

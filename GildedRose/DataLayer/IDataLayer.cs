@@ -20,5 +20,8 @@ public interface IDataLayer
     int GetLegendarySulfurasFixQuality();
     #endregion
 
+    ///<summary>
+    ///<para>Get an ItemType array of the item types listed by the data source</para>
+    ///</summary>
     ItemType[] GetItemTypes();
 }
